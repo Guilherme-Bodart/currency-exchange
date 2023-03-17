@@ -1,0 +1,33 @@
+.daily-box {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 310px;
+  height: 140px;
+  background-color: white;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.exchange-date {
+  color: '#07B0FB';
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.card-row {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.card-information {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.card-value {
+  font-size: 16px;
+  font-weight: 600;
+}

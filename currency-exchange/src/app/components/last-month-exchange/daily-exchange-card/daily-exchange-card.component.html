@@ -1,0 +1,20 @@
+<div class="daily-box">
+
+  <div class="exchange-date">
+    {{'09/03/2022'|date:'dd/MM/yyyy'}}
+  </div>
+
+  <div class="card-row">
+    <span class="card-information"></span>
+    <span class="card-value"></span>
+  </div>
+
+  <div class="card-row"></div>
+
+  <div class="difference-row">
+    <span>CLOSE DIFF (%):</span>
+    <span [ngStyle]="{color: 1>0 ? '#E54E4E' : '#69C669'}">{{'value'}}
+      <i class="fas fa-lg m-0" [ngClass]="{'fa-angle-up': 1>0, 'fa-angle-down': 1<0 }"></i>
+    </span>
+  </div>
+</div>
