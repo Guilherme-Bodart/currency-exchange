@@ -1,2 +1,57 @@
-<app-last-month-exchange></app-last-month-exchange>
-<app-exchange-result></app-exchange-result>
+<div class="principal-page">
+
+  <!-- Logo -->
+  <div class="image-box">
+    <img class="action-logo" src="assets/action-labs-logo.svg">
+  </div>
+  <!-- Logo -->
+
+  <!-- Exchange Title  -->
+  <div>
+    <span class="principal-title">BRL EXCHANGE RATE</span>
+  </div>
+  <!-- Exchange Title  -->
+
+  <!-- Select Currency Code -->
+  <div class="form-currency">
+    <label class="form-label" for="currencyCode">Enter the currency code</label>
+    <select type="text" id="currencyCode" class="form-control" (change)="changeCurrencyCode($event)">
+      <option hidden [value]=""> </option>
+      <option *ngFor="let option of currencyList" [hidden]="currenctCodeEnum.Brl == option" [value]="option">{{option}}
+      </option>
+    </select>
+  </div>
+  <!-- Select Currency Code -->
+
+  <!-- Button Confirm Exchange -->
+  <button (click)="resultExchange()" class="btn btn-exchange">
+    Exchange result
+  </button>
+  <!-- Button Confirm Exchange -->
+
+  <ng-container *ngIf="exchangeLoadingShow">
+    <div class="spinner-border" role="status">
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="exchangeShow">
+    <hr class="m-0">
+
+    <!-- Direct Exchange Results  -->
+    <app-exchange-result [currencyCode]="codeExchange" [exchangeCurrent]="exchangeCurrent"
+      [currencyCodeExchanged]="currenctCodeEnum.Brl"></app-exchange-result>
+    <!-- Direct Exchange Results  -->
+
+    <!-- Card Last Month Exchange -->
+    <app-last-month-exchange class="last-month" [currencyCode]="codeExchange"
+      [currencyCodeExchanged]="currenctCodeEnum.Brl" [dailyExchange]="dailyExchange"></app-last-month-exchange>
+    <!-- Card Last Month Exchange -->
+  </ng-container>
+
+  <!-- Footer -->
+  <footer>
+    Copyright 2022 - Action Labs
+  </footer>
+  <!-- Footer -->
+
+</div>

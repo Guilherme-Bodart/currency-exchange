@@ -1,1 +1,21 @@
-<p>exchange-result works!</p>
+<div class="exchange-price">
+  <!-- Date - Currency Code Exchange -->
+  <div class="date-currency">
+
+    <div class="d-flex flex-column">
+      <span class="title-exchange">Exchange rate now</span>
+      <span>{{this.exchangeCurrent?.lastUpdatedAt|date:'dd/MM/yyyy, HH:mm'}}</span>
+    </div>
+
+    <span class="exchange-code">
+      {{currencyCode + ' / ' + currencyCodeExchanged}}
+    </span>
+  </div>
+  <!-- Date - Currency Code Exchange -->
+
+  <!-- Price Exchange -->
+  <div class="box-price">
+    <span class="price-value">{{this.exchangeCurrent?.exchangeRate|currency:'BRL'}}</span>
+  </div>
+  <!-- Price Exchange -->
+</div>

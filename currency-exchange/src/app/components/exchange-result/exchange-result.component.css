@@ -1,0 +1,40 @@
+.exchange-price {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  gap: 16px;
+}
+
+.date-currency {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-exchange {
+  font-size: 18px;
+  font-weight: 600;
+  color: #262626;
+}
+
+.exchange-code {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  color: #07B0FB;
+}
+
+.box-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 420px;
+  height: 90px;
+  background: rgba(7, 176, 251, 0.1);
+}
+
+.price-value {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  color: #07B0FB;
+}

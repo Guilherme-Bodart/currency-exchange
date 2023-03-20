@@ -1,20 +1,50 @@
 <div class="daily-box">
 
+  <!-- Date -->
   <div class="exchange-date">
-    {{'09/03/2022'|date:'dd/MM/yyyy'}}
+    {{dailyExchange.date|date:'dd/MM/yyyy'}}
   </div>
+  <!-- Date -->
 
+  <!-- Open/Hight -->
   <div class="card-row">
-    <span class="card-information"></span>
-    <span class="card-value"></span>
+
+    <div class="card-information">
+      <span class="card-text">OPEN:</span>
+      <span class="card-value">{{'R$ ' + (dailyExchange.open).toFixed(5)}}</span>
+    </div>
+
+    <div class="card-information">
+      <span class="card-text">HIGHT:</span>
+      <span class="card-value">{{'R$ ' + (dailyExchange.high).toFixed(5)}}</span>
+    </div>
   </div>
+  <!-- Open/Hight -->
 
-  <div class="card-row"></div>
+  <!-- Close/Low -->
+  <div class="card-row">
 
+    <div class="card-information">
+      <span class="card-text">CLOSE:</span>
+      <span class="card-value">{{'R$ ' + (dailyExchange.close).toFixed(5)}}</span>
+    </div>
+
+    <div class="card-information">
+      <span class="card-text">LOW:</span>
+      <span class="card-value">{{'R$ ' + (dailyExchange.low).toFixed(5)}}</span>
+    </div>
+  </div>
+  <!-- Close/Low -->
+
+  <!-- Difference -->
   <div class="difference-row">
-    <span>CLOSE DIFF (%):</span>
-    <span [ngStyle]="{color: 1>0 ? '#E54E4E' : '#69C669'}">{{'value'}}
-      <i class="fas fa-lg m-0" [ngClass]="{'fa-angle-up': 1>0, 'fa-angle-down': 1<0 }"></i>
+    <span class="card-text">CLOSE DIFF (%):</span>
+    <span class="card-value" [ngStyle]="{color: differenceExchange>1 ? '#69C669' : '#E54E4E'}">
+      {{(differenceExchange>1 ? '+' : '-') + (differenceExchange).toFixed(5) + '%'}}
+      <fa-icon *ngIf="(differenceExchange>1)" class="angle-icon" [icon]="faAngleUp"></fa-icon>
+      <fa-icon *ngIf="differenceExchange<1" class="angle-icon" [icon]="faAngleDown"></fa-icon>
+
     </span>
   </div>
+  <!-- Difference -->
 </div>

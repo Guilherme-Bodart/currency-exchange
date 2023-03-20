@@ -1,1 +1,16 @@
-<app-daily-exchange-card></app-daily-exchange-card>
+<div class="d-flex align-items-center flex-column">
+
+  <div class="last-month">
+    <span class="title-days">LAST 30 DAYS</span>
+    <fa-icon *ngIf="cardShowList.length" (click)="hideShowList(false)" class="plus-icon" [icon]="faPlus"></fa-icon>
+    <fa-icon *ngIf="!cardShowList.length" (click)="hideShowList(true)" class="plus-icon" [icon]="faMinus"></fa-icon>
+  </div>
+
+  <div class="list-card" [ngClass]="{'p-0': !cardShowList.length}">
+    <ng-container *ngFor="let dailyExchange of cardShowList; index as IndexExchange">
+      <app-daily-exchange-card [dailyExchange]="dailyExchange" [differenceExchange]="IndexExchange==cardShowList.length-1
+        ? dailyExchange.close/oneDayMoreExchange.close
+        : dailyExchange.close/cardShowList[IndexExchange+1].close"></app-daily-exchange-card>
+    </ng-container>
+  </div>
+</div>
